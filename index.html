@@ -9,24 +9,52 @@
 </head>
 
 <style>
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
     input {
-        width: 200px;
+        width: 300px;
     }
 
     #movies {
         display: none;
         height: 200px;
-        width: 206px;
+        width: 320px;
         border: 1px solid black;
         overflow-y: scroll;
         border-top: none;
+        background-color: rgb(39, 39, 110);
+        color: white;
     }
+    .nav{
+        width: 100%;
+        background-color: blue;
+        height: 80px;
+        margin-bottom: 20px;
+    }
+    .searchbox {
+            width: 20%;
+            padding: 20px;
+            margin: auto;
+        }
+
+        .searchbox>input {
+            padding: 10px;
+        }
+    
 </style>
 
 <body>
-    <input oninput="debounce(main,1000)" type="text" id="movie" placeholder="Enter movie name" />
-
+    <div class="nav">
+    <div class="searchbox"><input oninput="debounce(main,1000)" type="text" id="movie" placeholder="Enter movie name" />
     <div id="movies"></div>
+    </div>
+    
+    </div>
+
+    
 
     <div id="show"></div>
 </body>
@@ -117,6 +145,8 @@
 
         let show = document.getElementById("show");
         show.innerHTML = "";
+
+        movies_div.style.display="none";
 
         let div = document.createElement("div");
 
